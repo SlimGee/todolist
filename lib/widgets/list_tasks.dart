@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:todoapp/data/models/task.dart';
+import 'package:todoapp/main.dart';
 import 'package:todoapp/utils/utils.dart';
 import 'package:todoapp/widgets/widgets.dart';
 
@@ -40,6 +41,7 @@ class ListTasks extends StatelessWidget {
                 return InkWell(
                   onLongPress: () {
                     //todo: delete task
+                    AppAlerts.showDeleteAlertDialog(context, task);
                   },
                   onTap: () async {
                     //TODO show task details
@@ -50,7 +52,22 @@ class ListTasks extends StatelessWidget {
                       },
                     );
                   },
-                  child: TaskTile(task: task),
+                  child: TaskTile(
+                    task: task,
+                    onCompleted: (value) async {
+                      await BaseWidget.of(context)
+                          .dataStore
+                          .updateTask(task: task)
+                          .then((value) {
+                        AppAlerts.displaySnackBar(
+                          context,
+                          task.isCompleted
+                              ? 'Task completed'
+                              : 'Task uncompleted',
+                        );
+                      });
+                    },
+                  ),
                 );
               },
               separatorBuilder: (BuildContext context, int index) {

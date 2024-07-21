@@ -64,7 +64,10 @@ class TaskTile extends StatelessWidget {
           ),
           Checkbox(
             value: task.isCompleted,
-            onChanged: onCompleted,
+            onChanged: (event) {
+              task.isCompleted = !task.isCompleted;
+              onCompleted!(task.isCompleted);
+            },
           ),
         ],
       ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 import 'package:todoapp/data/models/task.dart';
 import 'package:todoapp/utils/utils.dart';
 import 'package:todoapp/widgets/widgets.dart';
@@ -29,12 +30,33 @@ class ListTasks extends StatelessWidget {
               emptyTasksMessage,
               style: context.textTheme.headlineMedium,
             ))
-          : ListView.builder(
+          : ListView.separated(
               shrinkWrap: true,
               padding: EdgeInsets.zero,
               itemCount: tasks.length,
               itemBuilder: (ctx, index) {
-                return Text('home');
+                final task = tasks[index];
+
+                return InkWell(
+                  onLongPress: () {
+                    //todo: delete task
+                  },
+                  onTap: () async {
+                    //TODO show task details
+                    await showModalBottomSheet(
+                      context: context,
+                      builder: (ctx) {
+                        return TaskDetails(task: task);
+                      },
+                    );
+                  },
+                  child: TaskTile(task: task),
+                );
+              },
+              separatorBuilder: (BuildContext context, int index) {
+                return const Divider(
+                  thickness: 1.5,
+                );
               },
             ),
     );

@@ -65,7 +65,10 @@ class _CreateTaskScreenState extends ConsumerState<CreateTaskScreen> {
               const Gap(60),
               ElevatedButton(
                 onPressed: () => _createTask(),
-                child: const DisplayWhiteText(text: 'Save'),
+                child: const DisplayWhiteText(
+                  text: 'Save',
+                  fontSize: 16,
+                ),
               )
             ],
           ),

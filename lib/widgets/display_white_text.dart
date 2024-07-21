@@ -20,7 +20,7 @@ class DisplayWhiteText extends StatelessWidget {
       style: context.textTheme.headlineSmall?.copyWith(
         color: context.colorScheme.surface,
         fontSize: fontSize,
-        fontWeight: fontWeight ?? FontWeight.bold,
+        fontWeight: fontWeight ?? FontWeight.w500,
       ),
     );
   }

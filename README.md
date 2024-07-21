@@ -4,13 +4,20 @@ A new Flutter project.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+Running this project is simple! 
 
-A few resources to get you started if this is your first Flutter project:
+Clone the repository and run the following commands:
+```bash
+git clone https://github.com/SlimGee/todolist.git
+```
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+```bash
+cd todolist
+```
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Run the project with the following command:
+```bash
+flutter run
+```
+
+This is of course assuming you have flutter installed and configured on your machine with android sdk tools/emulators and everything. If not, you can follow the instructions [here](https://flutter.dev/docs/get-started/install) to install it.
